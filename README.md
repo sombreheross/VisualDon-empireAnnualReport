@@ -14,6 +14,9 @@ Une API rest qui contient des données sur l’univers Star Wars formatées en J
 ### Star Wars dataset sur gaggle.com
 Un dataset en .csv disponible sur [kaggle.com](https://www.kaggle.com/datasets/jsphyg/star-wars). Il est réparti en plusieurs tables qui comprennent chacune un type d’élément: personnage, planète, vaisseau, etc … Chaque table a de multiple colonnes (apr exemple nom, taille, masse, année de naissance, espèce). Les données sont soit des integer, soit des strings.
 Elles ont été créées par un utilisateur du site, Joe Young.
+
+### Données diverses
+Il est possible que nous fassions des compléments dans les données avec nos connaissances de l'univers Star Wars. Ou en ajoutant des images en lien avec les données par exemple.
 ## 🎯  But
 ## 🌌  Références
 
