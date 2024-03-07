@@ -1,6 +1,11 @@
 # Visualisation de Données - Empire Annual Report
 Nicolas Aerny, Emile Donzel & Leo Emeri, M51-2
 ## 💭  Introduction
+
+*L'Empire Galactique val mal. Ses récentes défaites militaires contre l'Alliance Rebelle ainsi que la perte des ses leaders, l'Empeureur et le seigneur Sith Dark Vador, l'ont placé en très mauvaise posture. Néanmoins, tout n'est pas perdu. L'Empire peut compter sur ses fidèles agents pour raviver la flamme.*
+
+Dans le cadre de ce projet, nous jouons des agents qui tentont de convaincre nos potentiels investisseurs que l'espoir voir l'Empire renaître est envisageable. La présentation va donc prendre la forme d'un "bilan" annuel, démontrant les chiffres et les statistiques de l'Empire
+
 ## 💾  Contexte des données
 ## 🖊️  Description
 ## 🎯  But
