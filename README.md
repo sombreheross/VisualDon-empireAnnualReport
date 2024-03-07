@@ -4,7 +4,7 @@ Nicolas Aerny, Emile Donzel & Leo Emeri, M51-2
 
 *L'Empire Galactique val mal. Ses récentes défaites militaires contre l'Alliance Rebelle ainsi que la perte des ses leaders, l'Empeureur et le seigneur Sith Dark Vador, l'ont placé en très mauvaise posture. Néanmoins, tout n'est pas perdu. L'Empire peut compter sur ses fidèles agents pour raviver la flamme.*
 
-Dans le cadre de ce projet qui s'inscrit dans l'unviers de Star Wars, nous jouons des agents présentons le "bilan" annuel impérial, démontrant ses chiffres et ses statistiques.
+Dans le cadre de ce projet qui s'inscrit dans l'unviers de Star Wars, nous jouons des qui agents présentons le "bilan" annuel impérial, démontrant ses chiffres et ses statistiques.
 
 ## 💾  Contexte des données
 ## 🖊️  Description
