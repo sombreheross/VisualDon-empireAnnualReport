@@ -6,8 +6,14 @@ Nicolas Aerny, Emile Donzel & Leo Emeri, M51-2
 
 Dans le cadre de ce projet qui s'inscrit dans l'unviers de Star Wars, nous jouons des qui agents présentons le "bilan" annuel impérial, démontrant ses chiffres et ses statistiques.
 
-## 💾  Contexte des données
-## 🖊️  Description
+## 💾  Contexte et descritpion des données
+### SWAPI
+Une API rest qui contient des données sur l’univers Star Wars formatées en JSON. On y trouve des données sur les personnages, planètes, vaisseaux, etc. Il y a des integer, des strings et aussi des liens vers d’autres objets en relation. Par exemple dans les données d’un personnage on peut avoir les liens de vaisseaux qu’il a piloté.
+ Elles sont issues de source comme Wookiepedia (Fan wiki de Star wars). Il s’agit d’un projet open source disponible sur GitHub et sur [swapi.tech](https://swapi.tech/), créé par Paul Hallett et maintenu aujourd’hui par Juriy Bura.
+
+### Star Wars dataset sur gaggle.com
+Un dataset en .csv disponible sur [kaggle.com](https://www.kaggle.com/datasets/jsphyg/star-wars). Il est réparti en plusieurs tables qui comprennent chacune un type d’élément: personnage, planète, vaisseau, etc … Chaque table a de multiple colonnes (apr exemple nom, taille, masse, année de naissance, espèce). Les données sont soit des integer, soit des strings.
+Elles ont été créées par un utilisateur du site, Joe Young.
 ## 🎯  But
 ## 🌌  Références
 
