@@ -30,3 +30,4 @@ https://www.deviantart.com/patrickkingart/art/Star-Wars-Blueprints-TIE-Defender-
 https://www.behance.net/gallery/88921351/Star-Wars-Jedi-Fallen-Order-Visual-Identity
 https://i.pinimg.com/564x/dc/6d/58/dc6d58d2fd12acb2c105de8925d45415.jpg 
 https://carto.com/blog/map-of-the-week-star-wars-galaxy
+https://www.behance.net/gallery/88661537/Star-Wars-Jedi-Fallen-Order-UI-Concept
