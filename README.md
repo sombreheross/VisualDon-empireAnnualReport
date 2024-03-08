@@ -18,6 +18,10 @@ Elles ont été créées par un utilisateur du site, Joe Young.
 ### Données diverses
 Il est possible que nous fassions des compléments dans les données avec nos connaissances de l'univers Star Wars. Ou en ajoutant des images en lien avec les données par exemple.
 ## 🎯  But
+
+Le but de ce projet est de visualiser les données impériales, par exemple : les planètes sous contrôle impérial, ses ennemis classés par espèces mais également les most wanted, la flotte de son armée avec description de certains vaisseaux et inventaire, des comparatifs avant / après afin d'analyser les évolutions et changements dans le temps.
+
+En répondant à ces questions, nous pourrons fournir des explications claires et des recommandations stratégiques pour améliorer l'efficacité et la force de l'armée impériale. L'objectif ultime est d'utiliser ces visualisations pour guider les décisions stratégiques et tactiques visant à rendre sa superbe à l'Empire Galactique.
 ## 🌌  Références
 
 Nos références visuelles viennent majoritairement de Pinterest et de site de fan de Star Wars
