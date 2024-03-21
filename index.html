@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="./src/css/main.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap-grid.min.css"
+		integrity="sha512-Aa+z1qgIG+Hv4H2W3EMl3btnnwTQRA47ZiSecYSkWavHUkBF2aPOIIvlvjLCsjapW1IfsGrEO3FU693ReouVTA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<title>EmpireDataViz</title>
+</head>
+
+<body>
+	<div class="layout">
+		<section class="section" id="home">
+			<div class="section-center">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="title-container">
+						<h1 class="glow main-title"><span>Bilan annuel d'activité</span> <br>Empire galactique</h1>
+					</div>
+						<div class="icon icon-home">
+							<svg>
+								<use href="./src/img/sprite.svg#logo-empire"></use>
+							</svg>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		</section>
+		<section class="section" id="galaxy">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<h2 class="glow">Contrôle galactique</h2>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="section" id="species">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<h2 class="glow">Espèces collaboratives</h2>
+					</div>
+				</div>
+			</div>
+			<div class="section-center">
+				<div class="container">
+					<div class="row">						
+						<div class="species-container species-d3">
+							<div class="species-item">
+								<div class="species-img">
+									<img src="http://placebacon.net/400/400" alt="">
+								</div>
+								<div class="species-desc">
+									<h3>Jean Foutre</h3>
+								</div>
+							</div>
+							<div class="species-item">
+								<div class="species-img">
+									<img src="http://placebacon.net/400/400" alt="">
+								</div>
+								<div class="species-desc">
+									<h3>Jean Foutre</h3>
+								</div>
+							</div>
+							<div class="species-item">
+								<div class="species-img">
+									<img src="http://placebacon.net/400/400" alt="">
+								</div>
+								<div class="species-desc">
+									<h3>Jean Foutre</h3>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+	</section>
+	<section class="section" id="wanted">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h2 class="glow">Most Wanted</h2>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="section" id="fleet">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="title-container">
+						<h2 class="glow">Etat de la flotte</h2>
+						<label class="switch glow-border">
+							<input type="checkbox" id="togBtn">
+							<div class="slider">
+								<span class="slider-button on">Après</span>
+								<span class="slider-button off">Avant</span>
+							</div>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="fleet-container">
+					<div>
+						<div class="fleet-item">
+							<h3 class="fleet-itemTitle">Chasseurs</h3>
+							<div class="fleet-itemPicto">
+								<div class="icon">
+									<svg class="">
+										<use href="./src/img/sprite.svg#spaceship"></use>
+									</svg>
+								</div>
+								<div class="icon">
+									<svg class="">
+										<use href="./src/img/sprite.svg#spaceship"></use>
+									</svg>
+								</div>
+								<div class="icon">
+									<svg class="">
+										<use href="./src/img/sprite.svg#spaceship"></use>
+									</svg>
+								</div>
+								<div class="icon">
+									<svg class="">
+										<use href="./src/img/sprite.svg#spaceship"></use>
+									</svg>
+								</div>
+								<div class="icon">
+									<svg class="">
+										<use href="./src/img/sprite.svg#spaceship"></use>
+									</svg>
+								</div>
+								<div class="icon">
+									<svg class="">
+										<use href="./src/img/sprite.svg#spaceship"></use>
+									</svg>
+								</div>
+								<div class="icon">
+									<svg class="">
+										<use href="./src/img/sprite.svg#spaceship"></use>
+									</svg>
+								</div>
+								<div class="icon">
+									<svg class="">
+										<use href="./src/img/sprite.svg#spaceship"></use>
+									</svg>
+								</div>
+								<div class="icon">
+									<svg class="">
+										<use href="./src/img/sprite.svg#spaceship"></use>
+									</svg>
+								</div>
+								<div class="icon">
+									<svg class="">
+										<use href="./src/img/sprite.svg#spaceship"></use>
+									</svg>
+								</div>
+							</div>
+						</div>
+						<div class="fleet-item">
+							<h3 class="fleet-itemTitle">Intercepteurs</h3>
+							<div class="fleet-itemPicto">
+								<svg class="icon">
+									<use href="./src/img/sprite.svg#spaceship"></use>
+								</svg>
+								<svg class="icon">
+									<use href="./src/img/sprite.svg#spaceship"></use>
+								</svg>
+								<svg class="icon">
+									<use href="./src/img/sprite.svg#spaceship"></use>
+								</svg>
+								<svg class="icon">
+									<use href="./src/img/sprite.svg#spaceship"></use>
+								</svg>
+								<svg class="icon">
+									<use href="./src/img/sprite.svg#spaceship"></use>
+								</svg>
+								<svg class="icon">
+									<use href="./src/img/sprite.svg#spaceship"></use>
+								</svg>
+								<svg class="icon">
+									<use href="./src/img/sprite.svg#spaceship"></use>
+								</svg>
+								<svg class="icon">
+									<use href="./src/img/sprite.svg#spaceship"></use>
+								</svg>
+								<svg class="icon">
+									<use href="./src/img/sprite.svg#spaceship"></use>
+								</svg>
+								<svg class="icon">
+									<use href="./src/img/sprite.svg#spaceship"></use>
+								</svg>
+								<svg class="icon">
+									<use href="./src/img/sprite.svg#spaceship"></use>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div class="fleet-data">
+							<div class="fleet-datatable glow-border">
+								<h3 class="h2 glow">Recensement des vaisseaux</h3>
+								<div class="fleet-datatableRow">
+									<div class="fleet-datatableCell">
+										<p>Chasseurs</p>
+									</div>
+									<div class="fleet-datatableCell">
+										<p>100</p>
+									</div>
+								</div>
+								<div class="fleet-datatableRow">
+									<div class="fleet-datatableCell">
+										<p>Croiseurs</p>
+									</div>
+									<div class="fleet-datatableCell">
+										<p>50</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="section" id="ship">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h2 class="glow">Vaisseaux</h2>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="section" id="vehicle">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h2 class="glow">Vehicle</h2>
+				</div>
+			</div>
+		</div>
+	</section>
+	</div>
+
+
+
+
+</body>
+<script type="module" src="src/index.js"></script>
+
+</html>

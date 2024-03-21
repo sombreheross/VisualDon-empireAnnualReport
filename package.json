@@ -6,13 +6,19 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "update-sprite": "svg-sprite -s --symbol-dest src/img --symbol-sprite sprite.svg src/icons/*.svg",
+    "watch": "nodemon --watch src/icons --exec 'node update-sprite'"
   },
   "devDependencies": {
-    "vite": "^5.0.12"
+    "nodemon": "^3.1.0",
+    "vite": "^5.0.12",
+    "vite-plugin-node-polyfills": "^0.21.0"
   },
   "dependencies": {
-    "d3": "^7.9.0"
+    "d3": "^7.9.0",
+    "normalize.css": "^8.0.1",
+    "svg-sprite": "^2.0.3"
   },
   "description": "### Contexte",
   "main": "index.js",

@@ -1,0 +1,30 @@
+.glow {
+    /* color: var(--color-glow); */
+    text-shadow:
+        /* 0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 21px #fff, */
+        0 0 21px var(--color-glow),
+        0 0 40px var(--color-glow),
+        0 0 46px var(--color-glow),
+        0 0 51px var(--color-glow),
+        0 0 75px var(--color-glow);
+}
+
+.glow-border {
+    border: 1px solid var(--color-primary);
+    border-radius: 15px;
+    box-shadow:
+    0 0 10px var(--color-glow),
+    0 0 20px var(--color-glow),
+    0 0 22px var(--color-glow),
+    /* 0 0 25px var(--color-glow),
+    0 0 35px var(--color-glow), */
+
+    inset 0 0 10px var(--color-glow),
+    inset 0 0 20px var(--color-glow),
+    inset 0 0 22px var(--color-glow);
+    /*inset 0 0 25px var(--color-glow),
+    inset 0 0 35px var(--color-glow); */
+
+}

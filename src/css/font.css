@@ -1,0 +1,83 @@
+@font-face {
+    font-family: 'Droidobesh';
+    src: url('../fonts/droidobesh.otf');
+}
+
+@font-face {
+    font-family: 'Gothic Heavy';
+    src: url('../fonts/itc-serif-gothic-heavy.ttf');
+}
+
+@font-face {
+    font-family: 'Avant Garde Gothic';
+    src: url('../fonts/itc-avant-garde-gothic-ce-book.otf');
+}
+
+html {
+    font-size: 16px;
+    font-family: 'Avant Garde Gothic', 'Verdana', serif;
+    color: var(--color-primary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+h1,
+.h1 {
+    font-family: 'Gothic Heavy', sans-serif;
+    font-size: var(--text-xl);
+    color: var(--color-primary);
+    text-transform: uppercase;
+}
+
+h2,
+.h2 {
+    font-family: 'Gothic Heavy', sans-serif;
+    font-size: var(--text-lg);
+    color: var(--color-primary);
+    text-transform: uppercase;
+}
+
+h3,
+.h3 {
+    font-family: 'Gothic Heavy', sans-serif;
+    font-size: var(--text-md);
+    color: var(--color-secondary);
+    text-transform: uppercase;
+}
+
+.droidobesh {
+    font-family: Droidobesh, sans-serif;
+    font-size: .4em;
+    display: block;
+}
+
+.main-title {
+    text-align: center;
+}
+
+.main-title span {
+    font-size: .8em;
+}
+
+.switch {
+    font-family: 'Gothic Heavy', sans-serif;
+    text-transform: uppercase;
+}
+
+.fleet-datatable h3 {
+    font-size: var(--text-md);
+    margin-bottom: var(--space-md);
+}
+
+.fleet-datatable {
+    font-family: 'Gothic Heavy', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+}
