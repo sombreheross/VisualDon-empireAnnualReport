@@ -7,17 +7,17 @@ const data = [];
 async function loadDataAndManipulate() {
     try {
         // Utilisation d'async/await pour attendre les données de chaque requête
-        const species1 = await loadSWAPIData('species', 1);
-        const species2 = await loadSWAPIData('species', 2);
-        const species4 = await loadSWAPIData('species', 4);
+        const planet1 = await loadSWAPIData('planets', 1);
+        const planet2 = await loadSWAPIData('planets', 2);
+        const planet3 = await loadSWAPIData('planets', 4);
+        // etc etc etc t'as capté
 
         // Ajout des données au tableau 'data'
-        data.push(species1, species2, species4);
+        data.push(planet1, planet2, planet3);
 
         // Ici, 'data' contient les résultats et peut être manipulé
         console.log(data); // Affiche le tableau 'data' mis à jour
-        // Ajoutez ici toute manipulation supplémentaire de 'data'
-
+        // TODO: Ajouter ici toute manipulation de data
     } catch (error) {
         console.error("Error:", error);
     }
