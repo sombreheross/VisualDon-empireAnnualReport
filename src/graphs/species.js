@@ -1,38 +1,36 @@
+import { loadSWAPIData } from '../apiRequest.js';
 import * as d3 from 'd3';
 import { updateTitle } from '../titles.js';
 
-const data = []
+// Déclaration de la variable pour stocker les données
+const data = [];
 
-const p1 = fetch('https://swapi.dev/api/species/01')
-const p2 = fetch('https://swapi.dev/api/species/02')
-const p3 = fetch('https://swapi.dev/api/species/04')
+// Fonction asynchrone pour charger les données et les manipuler
+async function loadDataAndManipulate() {
+    try {
+        // Utilisation d'async/await pour attendre les données de chaque requête
+        const species1 = await loadSWAPIData('species', 1);
+        const species2 = await loadSWAPIData('species', 2);
+        const species4 = await loadSWAPIData('species', 4);
 
-Promise.all([p1, p2, p3].map(p => p.then(response => response.json())))
-    .then((values) => {
-        // console.log(values);
-        data.push(...values);
-        console.log(data)
+        // Ajout des données au tableau 'data'
+        data.push(species1, species2, species4);
 
-        // data.forEach(element => {
-
-        //     console.log('name: ' + element.name)
-        //     console.log('height: ' + element.average_height)
-        //     console.log('skin color: ' + element.skin_colors)
-        //     console.log('lifespan: ' + element.average_lifespan)
-        //     console.log('homeworld: ' + element.homeworld)
-        //     console.log('-----------------------------------')
-        // });        
+        // Ici, 'data' contient les résultats et peut être manipulé
+        console.log(data); // Affiche le tableau 'data' mis à jour
+        // Ajoutez ici toute manipulation supplémentaire de 'data'
 
         const SectionTitle = d3.select('#species h2')
 
         function update(data) {
-            // console.log(data, d => d);
+            console.log(data, d => d);
             d3.select('.species-container').selectAll('.species-item')
-                .data(data, d => d.name)
+                .data(data, d => d.properties.name)
                 .join(
-                    enter => enter.append('div')                    
+                    enter => enter.append('div')
+                    .style('background' , 'red')                    
                         .attr('class', 'species-item')
-                        .attr('id', d => d.name)
+                        .attr('id', d => d.properties.name)
                         .each(function (d) {
                             d3.select(this)
                                 .append('div')
@@ -42,12 +40,12 @@ Promise.all([p1, p2, p3].map(p => p.then(response => response.json())))
 
                             d3.select(this)
                                 .append('h3')
-                                .text(d => d.name)                                                                                     
+                                .text(d => d.properties.name)                                                                                     
                         }
                         ),
                         
                     update => update                    
-                        .attr('id', d => d.name)
+                        .attr('id', d => d.properties.name)
 
                         .each(function (d) {                            
                             d3.select(this)
@@ -82,7 +80,7 @@ Promise.all([p1, p2, p3].map(p => p.then(response => response.json())))
                                 .text('Classification')
                             d3.select(this).select('.species-classification')
                                 .append('p')
-                                .text(d => d.classification)
+                                .text(d => d.properties.classification)
 
                             d3.select(this).select('.species-details')
                                 .append('div')
@@ -93,7 +91,7 @@ Promise.all([p1, p2, p3].map(p => p.then(response => response.json())))
                                 .text('Height')
                             d3.select(this).select('.species-height')
                                 .append('p')
-                                .text(d => d.average_height)
+                                .text(d => d.properties.average_height)
 
                             d3.select(this).select('.species-details')
                                 .append('div')
@@ -104,7 +102,7 @@ Promise.all([p1, p2, p3].map(p => p.then(response => response.json())))
                                 .text('Skin color')
                             d3.select(this).select('.species-skin')
                                 .append('p')
-                                .text(d => d.skin_colors)
+                                .text(d => d.properties.skin_colors)
 
                             d3.select(this).select('.species-details')
                                 .append('div')
@@ -115,7 +113,7 @@ Promise.all([p1, p2, p3].map(p => p.then(response => response.json())))
                                 .text('Lifespan')
                             d3.select(this).select('.species-lifespan')
                                 .append('p')
-                                .text(d => d.average_lifespan)
+                                .text(d => d.properties.average_lifespan)
 
                             d3.select(this).select('.species-details')
                                 .append('div')
@@ -126,7 +124,7 @@ Promise.all([p1, p2, p3].map(p => p.then(response => response.json())))
                                 .text('Homeworld')
                             d3.select(this).select('.species-homeworld')
                                 .append('p')
-                                .text(d => d.homeworld)
+                                .text(d => d.properties.homeworld)
 
                             d3.select('#species .btn-backContainer')
                                 .transition()
@@ -173,7 +171,7 @@ Promise.all([p1, p2, p3].map(p => p.then(response => response.json())))
                 const clickedElement = d3.select(this).attr('id');
                 console.log(clickedElement);
 
-                const updatedData = data.filter(item => item.name === clickedElement);
+                const updatedData = data.filter(item => item.properties.name === clickedElement);
                 update(updatedData);
             });
 
@@ -183,7 +181,10 @@ Promise.all([p1, p2, p3].map(p => p.then(response => response.json())))
                 update(data);
             });
 
-    })
-    .catch((error) => {
+    } catch (error) {
         console.error("Error:", error);
-    });
+    }
+}
+
+// Appel de la fonction pour charger les données
+loadDataAndManipulate();

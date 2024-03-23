@@ -8,7 +8,7 @@ export function createSubtitles(arr) {
 });
 }
 
-createSubtitles(titles);
+// createSubtitles(titles);
 
 export function updateTitle(selector, newTitle) {
   const title = document.querySelector(selector);
