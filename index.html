@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap-grid.min.css"
 		integrity="sha512-Aa+z1qgIG+Hv4H2W3EMl3btnnwTQRA47ZiSecYSkWavHUkBF2aPOIIvlvjLCsjapW1IfsGrEO3FU693ReouVTA=="
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 	<title>EmpireDataViz</title>
 </head>
 
@@ -15,22 +16,23 @@
 	<div class="layout">
 		<section class="section" id="home">
 			<div class="section-center">
-			<div class="container">
-				<div class="row">
-					<div class="col-12">
-						<div class="title-container">
-						<h1 class="glow main-title"><span>Bilan annuel d'activité</span> <br>Empire galactique</h1>
-					</div>
-						<div class="icon icon-home">
-							<svg>
-								<use href="./src/img/sprite.svg#logo-empire"></use>
-							</svg>
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<div class="title-container">
+								<h1 class="glow main-title"><span>Bilan annuel d'activité</span> <br>Empire galactique
+								</h1>
+							</div>
+							<div class="icon icon-home">
+								<svg>
+									<use href="./src/img/sprite.svg#logo-empire"></use>
+								</svg>
+							</div>
 						</div>
-					</div>
 
+					</div>
 				</div>
 			</div>
-		</div>
 		</section>
 		<section class="section" id="galaxy">
 			<div class="container">
@@ -45,42 +47,29 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-12">
-						<h2 class="glow">Espèces collaboratives</h2>
-					</div>
-				</div>
-			</div>
-			<div class="section-center">
-				<div class="container">
-					<div class="row">						
-						<div class="species-container species-d3">
-							<div class="species-item">
-								<div class="species-img">
-									<img src="http://placebacon.net/400/400" alt="">
-								</div>
-								<div class="species-desc">
-									<h3>Jean Foutre</h3>
-								</div>
+						<div class="title-container">
+							<div class="btn-backContainer">
+								<button class="btn-back icon">
+									<svg class="">
+										<use href="./src/img/sprite.svg#chevron"></use>
+									</svg>
+								</button>
 							</div>
-							<div class="species-item">
-								<div class="species-img">
-									<img src="http://placebacon.net/400/400" alt="">
-								</div>
-								<div class="species-desc">
-									<h3>Jean Foutre</h3>
-								</div>
-							</div>
-							<div class="species-item">
-								<div class="species-img">
-									<img src="http://placebacon.net/400/400" alt="">
-								</div>
-								<div class="species-desc">
-									<h3>Jean Foutre</h3>
-								</div>
-							</div>
+							<h2 class="glow">Espèces collaboratives</h2>
 						</div>
 					</div>
 				</div>
 			</div>
+
+			<div class="section-center">
+				<div class="container">
+					<div class="row">
+						<div class="species-container species-d3"></div>
+					</div>
+				</div>
+			</div>
+
+	</div>
 	</div>
 	</section>
 	<section class="section" id="wanted">
@@ -254,7 +243,7 @@
 
 
 
-
+	<div id="particles-js"></div>
 </body>
 <script type="module" src="src/index.js"></script>
 

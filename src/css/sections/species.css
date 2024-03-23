@@ -1,14 +1,27 @@
 .species-container {
     display: flex;
-    gap: calc(var(--space-xl) * 1.5);
+    width: 100%;
+    position: relative;
 }
 
 .species-item {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: var(--space-md);
+    padding: 0 var(--space-md);
+    overflow: hidden;
 
+    @media(min-width: 992px) {
+        padding: 0 var(--space-lg);
+    }
+}
+
+@media(min-width: 1200px) {
+    .species-item {
+        padding: 0 var(--space-xl);
+    }
 }
 
 .species-img img  {
@@ -19,4 +32,28 @@
 .species-desc {
     text-align: center;
     /* margin-top: var(--space-md); */
+}
+
+.species-details {
+    position: absolute;
+    width: max-content;
+    bottom: -23px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: var(--space-lg);
+    justify-content: space-between;
+    flex-wrap: wrap;
+    /* height: 0; */
+    overflow: visible;    
+    /* transition: all 0.5s 5s; */
+}
+
+.species-details > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* height: 0;
+    overflow: hidden; */
 }

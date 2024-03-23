@@ -31,17 +31,26 @@ h6 {
 h1,
 .h1 {
     font-family: 'Gothic Heavy', sans-serif;
-    font-size: var(--text-xl);
+    font-size: var(--text-lg);
     color: var(--color-primary);
     text-transform: uppercase;
 }
 
+
+
 h2,
 .h2 {
     font-family: 'Gothic Heavy', sans-serif;
-    font-size: var(--text-lg);
+    font-size: calc(var(--text-lg) * .75);
     color: var(--color-primary);
     text-transform: uppercase;
+}
+
+@media(min-width: 1920px) {
+    h2,
+    .h2 {
+        font-size: var(--text-xl);
+    }
 }
 
 h3,
@@ -51,6 +60,8 @@ h3,
     color: var(--color-secondary);
     text-transform: uppercase;
 }
+
+
 
 .droidobesh {
     font-family: Droidobesh, sans-serif;
@@ -69,6 +80,16 @@ h3,
 .switch {
     font-family: 'Gothic Heavy', sans-serif;
     text-transform: uppercase;
+}
+
+.species-details .h3 {
+    /* font-size: var(--text-s); */
+}
+
+.species-details p {
+    /* font-family: 'Avant Garde Gothic', sans-serif; */
+    font-size: var(--text-s);
+    margin: 0;
 }
 
 .fleet-datatable h3 {
