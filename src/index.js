@@ -3,11 +3,13 @@ import './graphs/mostWanted.js';
 import './graphs/species.js';
 import './graphs/vehicle.js';
 import './graphs/starship.js';
+import './graphs/fleet.js';
 
 import './titles.js';
+import './js/custom-elements/title.js'
 
-const titles = document.querySelectorAll('h2.glow, .fleet-datatable h3');
-console.log(titles);
+const titles = document.querySelectorAll('h2.glow, .fleet-datatable h3, .blueprint-title h2');
+// console.log(titles);
 
 titles.forEach(title => {
     title.insertAdjacentHTML('beforeend', `<span class="droidobesh">${title.innerHTML}</span>`);
@@ -123,3 +125,48 @@ particlesJS("particles-js", {
   },
   "retina_detect": true
 });
+
+
+
+
+// Get all sections in the HTML document
+const sections = document.querySelectorAll('section');
+
+// Create an array of section IDs
+const sectionIds = Array.from(sections).map(section => section.id);
+
+
+
+// let scrolling = 0;
+// let scrollFlag = 1;
+
+// function scrollEvent(event){
+//   console.log(event);
+//   if (event.deltaY < 0) {
+//     console.log("deltay");
+//     if (scrolling !== 0) {
+//       console.log("scrolling");
+//       scrolling += 100;
+//       document.getElementById(
+//         "layout"
+//       ).style.transform = `translateY(${scrolling}vh)`;
+//     }
+//   } else if (event.deltaY > 0) {
+//     if (scrolling > -300) {
+//       scrolling -= 100;
+//       document.getElementById(
+//         "layout"
+//       ).style.transform = `translateY(${scrolling}vh)`;
+//     }
+//   }
+// }
+
+// window.addEventListener("wheel", function (event) {
+//   if(scrollFlag === 1){
+//     setTimeout(()=>{
+//       scrollEvent(event)
+//       scrollFlag = 1;
+//     },1000)
+//     scrollFlag = 0;
+//   }
+// });

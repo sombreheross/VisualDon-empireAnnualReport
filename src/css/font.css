@@ -61,6 +61,13 @@ h3,
     text-transform: uppercase;
 }
 
+h4,
+.h4 {
+    font-family: 'Gothic Heavy', sans-serif;
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+}
+
 
 
 .droidobesh {
@@ -82,9 +89,6 @@ h3,
     text-transform: uppercase;
 }
 
-.species-details .h3 {
-    /* font-size: var(--text-s); */
-}
 
 .species-details p {
     /* font-family: 'Avant Garde Gothic', sans-serif; */
@@ -102,3 +106,14 @@ h3,
     font-weight: 700;
     text-transform: uppercase;
 }
+
+.planet-graphTitle {
+    font-family: 'Gothic Heavy', sans-serif;
+    font-weight: 700;
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    fill: var(--color-secondary);
+    opacity: 0;
+    transition: all .3s;
+}
+

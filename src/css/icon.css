@@ -7,8 +7,18 @@
 .icon-home {
     width: 600px;
     height: 600px;
-    fill: var(--color-primary);
+    fill: #000;
+}
 
+.icon-blueprint {
+   width: 100%;
+   height: auto;
+}
+
+@media(min-width: 992px) {
+    .icon-blueprint svg {
+        min-height: 250px;
+    }
 }
 
 .icon svg {

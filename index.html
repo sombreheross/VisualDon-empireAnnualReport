@@ -9,16 +9,17 @@
 		integrity="sha512-Aa+z1qgIG+Hv4H2W3EMl3btnnwTQRA47ZiSecYSkWavHUkBF2aPOIIvlvjLCsjapW1IfsGrEO3FU693ReouVTA=="
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/scrollama/3.2.0/scrollama.min.js" integrity="sha512-YE2BOLTLBOkZ10ahg304yD425ncH98QTjdCgfsjzAJB1tMHWeruT4BBrHL2FXfXLjFJqfsB7I7qhqxubPsT/dw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<title>EmpireDataViz</title>
 </head>
 
 <body>
-	<div class="layout">
+	<div class="layout" id="layout">
 		<section class="section" id="home">
 			<div class="section-center">
 				<div class="container">
 					<div class="row">
-						<div class="col-12">
+						<div class="col-12">							
 							<div class="title-container">
 								<h1 class="glow main-title"><span>Bilan annuel d'activité</span> <br>Empire galactique
 								</h1>
@@ -34,13 +35,69 @@
 				</div>
 			</div>
 		</section>
-		<section class="section" id="galaxy">
+		<section class="section section-galaxy section-fullheight" id="galaxy">			
 			<div class="container">
 				<div class="row">
 					<div class="col-12">
-						<h2 class="glow">Contrôle galactique</h2>
+						<title-container title-overview="Contrôle galactique" title-detail="" back-btn switch></title-container>
+						<!-- <div class="title-container">
+							<div class="btn-backContainer">
+								<button class="btn-back icon">
+									<svg class="">
+										<use href="./src/img/sprite.svg#chevron"></use>
+									</svg>
+								</button>
+							</div>
+							<h2 class="glow">Contrôle galactique</h2>
+							<label class="switch glow-border">
+								<input type="checkbox" id="togBtn">
+								<div class="slider">
+									<span class="slider-button on">Après</span>
+									<span class="slider-button off">Avant</span>
+								</div>
+							</label>
+						</div> -->
 					</div>
 				</div>
+			</div>
+			<div class="section-center">
+				<div class="container">				
+						<div class="map-container">
+							
+							
+						</div>	
+						<div class="planet-details">
+							<div class="planet-data">
+								<div class="planet-diameter">
+									<h3>Diameter</h3>
+									<p>7400 km</p>
+								</div>
+								<div class="planet-gravity">
+									<h3>Gravity</h3>
+									<p>7400 km</p>
+								</div>
+								<div class="planet-climate">
+									<h3>Climate</h3>
+									<p>7400 km</p>
+								</div>
+								<div class="planet-terrain">
+									<h3>Terrain</h3>
+									<p>7400 km</p>
+								</div>
+								<div class="planet-rotation">
+									<h3>Rotation</h3>
+									<p>7400 km</p>
+								</div>
+								<div class="planet-population">
+									<h3>Population</h3>
+									<p>7400 km</p>
+								</div>	
+							</div>
+							<div class="planet-img">
+								<img src="./src/img/planets/hoth.png" alt="">
+							</div>
+						</div>		
+				</div>				
 			</div>
 		</section>
 		<section class="section" id="species">
@@ -84,7 +141,7 @@
 	<section class="section" id="fleet">
 		<div class="container">
 			<div class="row">
-				<div class="col-12">
+				<div class="col-12">					
 					<div class="title-container">
 						<h2 class="glow">Etat de la flotte</h2>
 						<label class="switch glow-border">
@@ -99,121 +156,12 @@
 			</div>
 			<div class="row">
 				<div class="fleet-container">
-					<div>
-						<div class="fleet-item">
-							<h3 class="fleet-itemTitle">Chasseurs</h3>
-							<div class="fleet-itemPicto">
-								<div class="icon">
-									<svg class="">
-										<use href="./src/img/sprite.svg#spaceship"></use>
-									</svg>
-								</div>
-								<div class="icon">
-									<svg class="">
-										<use href="./src/img/sprite.svg#spaceship"></use>
-									</svg>
-								</div>
-								<div class="icon">
-									<svg class="">
-										<use href="./src/img/sprite.svg#spaceship"></use>
-									</svg>
-								</div>
-								<div class="icon">
-									<svg class="">
-										<use href="./src/img/sprite.svg#spaceship"></use>
-									</svg>
-								</div>
-								<div class="icon">
-									<svg class="">
-										<use href="./src/img/sprite.svg#spaceship"></use>
-									</svg>
-								</div>
-								<div class="icon">
-									<svg class="">
-										<use href="./src/img/sprite.svg#spaceship"></use>
-									</svg>
-								</div>
-								<div class="icon">
-									<svg class="">
-										<use href="./src/img/sprite.svg#spaceship"></use>
-									</svg>
-								</div>
-								<div class="icon">
-									<svg class="">
-										<use href="./src/img/sprite.svg#spaceship"></use>
-									</svg>
-								</div>
-								<div class="icon">
-									<svg class="">
-										<use href="./src/img/sprite.svg#spaceship"></use>
-									</svg>
-								</div>
-								<div class="icon">
-									<svg class="">
-										<use href="./src/img/sprite.svg#spaceship"></use>
-									</svg>
-								</div>
-							</div>
-						</div>
-						<div class="fleet-item">
-							<h3 class="fleet-itemTitle">Intercepteurs</h3>
-							<div class="fleet-itemPicto">
-								<svg class="icon">
-									<use href="./src/img/sprite.svg#spaceship"></use>
-								</svg>
-								<svg class="icon">
-									<use href="./src/img/sprite.svg#spaceship"></use>
-								</svg>
-								<svg class="icon">
-									<use href="./src/img/sprite.svg#spaceship"></use>
-								</svg>
-								<svg class="icon">
-									<use href="./src/img/sprite.svg#spaceship"></use>
-								</svg>
-								<svg class="icon">
-									<use href="./src/img/sprite.svg#spaceship"></use>
-								</svg>
-								<svg class="icon">
-									<use href="./src/img/sprite.svg#spaceship"></use>
-								</svg>
-								<svg class="icon">
-									<use href="./src/img/sprite.svg#spaceship"></use>
-								</svg>
-								<svg class="icon">
-									<use href="./src/img/sprite.svg#spaceship"></use>
-								</svg>
-								<svg class="icon">
-									<use href="./src/img/sprite.svg#spaceship"></use>
-								</svg>
-								<svg class="icon">
-									<use href="./src/img/sprite.svg#spaceship"></use>
-								</svg>
-								<svg class="icon">
-									<use href="./src/img/sprite.svg#spaceship"></use>
-								</svg>
-							</div>
-						</div>
+					<div>												
 					</div>
 					<div>
 						<div class="fleet-data">
 							<div class="fleet-datatable glow-border">
-								<h3 class="h2 glow">Recensement des vaisseaux</h3>
-								<div class="fleet-datatableRow">
-									<div class="fleet-datatableCell">
-										<p>Chasseurs</p>
-									</div>
-									<div class="fleet-datatableCell">
-										<p>100</p>
-									</div>
-								</div>
-								<div class="fleet-datatableRow">
-									<div class="fleet-datatableCell">
-										<p>Croiseurs</p>
-									</div>
-									<div class="fleet-datatableCell">
-										<p>50</p>
-									</div>
-								</div>
+								<h3 class="h2 glow">Recensement des vaisseaux</h3>					
 							</div>
 						</div>
 					</div>
@@ -221,12 +169,60 @@
 			</div>
 		</div>
 	</section>
-	<section class="section" id="ship">
+	<section class="section section-blueprint section-fullheight" id="ship">
 		<div class="container">
 			<div class="row">
-				<div class="col-12">
-					<h2 class="glow">Vaisseaux</h2>
+				<div class="col-12">				
+					<div class="title-container">
+						<h2 class="glow">Vaisseau de l'année</h2>						
+					</div>
 				</div>
+			</div>
+		</div>
+		<div class="section-center">
+			<div class="container">				
+					<div class="blueprint-container">
+						<div class="blueprint-title">
+							<h2 class="h3">Intercepteur Tie</h2>
+						</div>
+						<div class="blueprint-table">
+							<div class="blueprint-tableLeft">
+								<div class="blueprint-cell">
+									<h4>Modèle</h4>
+									<p>Twin Ion Engine Advanced V1</p>
+								</div>
+								<div class="blueprint-cell">
+									<h4>Modèle</h4>
+									<p>Twin Ion Engine Advanced V1</p>
+								</div>
+								<div class="blueprint-cell">
+									<h4>Modèle</h4>
+									<p>Twin Ion Engine Advanced V1</p>
+								</div>
+							</div>
+							<div class="blueprint-tableCenter">
+								<div class="icon icon-blueprint">
+									<svg>
+										<use href="./src/img/sprite.svg#tiebomber"></use>
+									</svg>
+								</div>
+							</div>
+							<div class="blueprint-tableRight">
+								<div class="blueprint-cell">
+									<h4>Modèle</h4>
+									<p>Twin Ion Engine Advanced V1</p>
+								</div>
+								<div class="blueprint-cell">
+									<h4>Modèle</h4>
+									<p>Twin Ion Engine Advanced V1</p>
+								</div>
+								<div class="blueprint-cell">
+									<h4>Modèle</h4>
+									<p>Twin Ion Engine Advanced V1</p>
+								</div>
+							</div>
+						</div>
+					</div>			
 			</div>
 		</div>
 	</section>
@@ -240,8 +236,6 @@
 		</div>
 	</section>
 	</div>
-
-
 
 	<div id="particles-js"></div>
 </body>

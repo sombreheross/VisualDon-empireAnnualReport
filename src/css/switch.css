@@ -36,13 +36,13 @@ input+.slider>.on, input+.slider>.off {
     transition: all .3s;
 }
 
-input:not(:checked)+.slider>.on {
+input:not(:checked)+.slider>.off {
     background-color: var(--color-primary);
     color: var(--color-dark);
     transition: all .3s;
 }
 
-input:checked+.slider>.off {
+input:checked+.slider>.on {
     background-color: var(--color-primary);
     color: var(--color-dark);
     transition: all .3s;

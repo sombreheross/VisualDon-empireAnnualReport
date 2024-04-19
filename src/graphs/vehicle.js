@@ -15,7 +15,7 @@ async function loadDataAndManipulate() {
         data.push(vehicle);
 
         // Ici, 'data' contient les résultats et peut être manipulé
-        console.log(data); // Affiche le tableau 'data' mis à jour
+        // console.log(data); // Affiche le tableau 'data' mis à jour
         // TODO: Ajouter ici toute manipulation de data
     } catch (error) {
         console.error("Error:", error);
