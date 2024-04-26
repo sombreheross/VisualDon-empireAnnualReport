@@ -7,22 +7,22 @@ const data = [
     {
         name: 'TIE Fighter',
         quantity: 12,
-        icon: 'tiebomber'
+        icon: 'tie_fighter'
     },
     {
         name: 'TIE Bomber',
-        quantity: 5,
-        icon: 'tiebomber'
+        quantity: 50,
+        icon: 'tie_bomber'
     },
     {
         name: 'Star Destroyer',
         quantity: 24,
-        icon: 'tiebomber'
+        icon: 'stardestroyer'
     },
     {
-        name: 'Big Schwifty',
+        name: 'Shuttle',
         quantity: 27,
-        icon: 'tiebomber'
+        icon: 'shuttle'
     }
 ];
 
@@ -38,8 +38,6 @@ const updatedData = (data, updatedQuantity) => {
     });
 }
 
-// Initial render
-updateFleetItems(data);
 
 let isUpdated = false;
 
@@ -63,7 +61,7 @@ function updateFleetItems(data) {
 
     // Update existing fleet items
     fleetItems.select('.fleet-itemPicto').selectAll('.icon')
-        .data(d => Array(d.quantity).fill())
+        .data(d => Array.from({ length: d.quantity }, () => d))
         .join(
             enter => enter.append('div').attr('class', 'icon'),
             update => update.attr('class', 'icon'),
@@ -73,11 +71,12 @@ function updateFleetItems(data) {
                      d3.select(this).classed('disabled', true);
                  })
         )
-        .html(`
+        .html(d => `
             <svg class="">
-                <use href="./src/img/sprite.svg#tiebomber"></use>
+                <use href="./src/img/sprite.svg#${d.icon}"></use>
+
             </svg>
-        `);
+        `); 
 
     // Enter new fleet items
     const fleetItemsEnter = fleetItems.enter().append('div')
@@ -90,13 +89,14 @@ function updateFleetItems(data) {
     const fleetItemPicto = fleetItemsEnter.append('div')
         .attr('class', 'fleet-itemPicto');
 
-    fleetItemPicto.selectAll('.icon')
-        .data(d => Array(d.quantity).fill())
+        fleetItemPicto.selectAll('.icon')
+        .data(d => Array.from({ length: d.quantity }, () => d))
         .join('div')
         .attr('class', 'icon')
-        .html(`
+        .html(d => `
             <svg class="">
-                <use href="./src/img/sprite.svg#tiebomber"></use>
+                <use href="./src/img/sprite.svg#${d.icon}"></use>
+
             </svg>
         `);    
 }
