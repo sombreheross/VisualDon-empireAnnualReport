@@ -7,12 +7,12 @@ const data = [];
 async function loadDataAndManipulate() {
     try {
         // Utilisation d'async/await pour attendre les données de chaque requête
-        const vehicle = await loadSWAPIData('starships', 15);
+        const starship = await loadSWAPIData('starships', 13);
 
-        // etc etc etc t'as capté
-
+        // Mise à jour du DOM avec les données récupérées
+        updateDOMWithData(starship.properties);
         // Ajout des données au tableau 'data'
-        data.push(vehicle);
+        data.push(starship);
 
         // Ici, 'data' contient les résultats et peut être manipulé
         console.log(data); // Affiche le tableau 'data' mis à jour
@@ -22,5 +22,24 @@ async function loadDataAndManipulate() {
     }
 }
 
+function updateDOMWithData(data) {
+    // Mise à jour des informations sur le modèle
+    const cellsLeft = document.querySelectorAll('#ship .blueprint-tableLeft .blueprint-cell p');
+    cellsLeft[0].textContent = formatText(data.model);
+    cellsLeft[1].textContent = formatText(data.manufacturer);
+    cellsLeft[2].textContent = formatText(data.starship_class);
+
+    // Mise à jour des informations sur les capacités et la vitesse
+    const cellsRight = document.querySelectorAll('#ship .blueprint-tableRight .blueprint-cell p');
+    cellsRight[0].textContent = data.max_atmosphering_speed;
+    cellsRight[1].textContent = data.crew;
+    cellsRight[2].textContent = `${data.cargo_capacity} kg`;
+
+    function formatText(text) {
+        return text.replace(/^\w|\s\w/g, letter => letter.toUpperCase());
+    }
+}
 // Appel de la fonction pour charger les données
-loadDataAndManipulate();
+document.addEventListener('DOMContentLoaded', function () {
+    loadDataAndManipulate();
+});
