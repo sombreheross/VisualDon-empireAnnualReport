@@ -126,6 +126,14 @@ particlesJS("particles-js", {
   "retina_detect": true
 });
 
+let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+document.addEventListener('scroll', function () {
+  scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  document.querySelector('#particles-js').style.top = `${scrollTop}px`;
+
+//console.log('scrollTop', scrollTop);
+});
 
 
 

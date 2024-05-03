@@ -1,6 +1,5 @@
 import { loadSWAPIData } from '../apiRequest.js';
 import * as d3 from 'd3';
-import { toggleTitle, updateTitle } from '../titles.js';
 
 // Déclaration de la variable pour stocker les données
 const data = [];
@@ -8,44 +7,82 @@ const data = [];
 // Fonction asynchrone pour charger les données et les manipuler
 async function loadDataAndManipulate() {
     try {
-        const requests = Array.from({ length: 10 }, (_, i) => loadSWAPIData('planets', i + 1));
-        const planetsData = await Promise.all(requests);
+        // Utilisation d'async/await pour attendre les données de chaque requête
+        const alignmentBefore = []
+        const alignmentAfter = []
 
-        const data = [];
-        const alignmentBefore = [];
-        const alignmentAfter = [];
+        if (localStorage.getItem('planets')) {
+            data.push(...JSON.parse(localStorage.getItem('planets')));
+            alignmentBefore.push(...JSON.parse(localStorage.getItem('alignmentBefore')));
+            alignmentAfter.push(...JSON.parse(localStorage.getItem('alignmentAfter')));
 
-        planetsData.forEach((planet, index) => {
-            console.log(planet.properties.name);
-            data.push(planet);
-            alignmentBefore.push(Math.random() < 0.7);
-            alignmentAfter.push(Math.random() < 0.3);
+        } else {
+            for (let i = 1; i <= 30; i++) {
+                const loadPlanet = await loadSWAPIData('planets', i);
+                // console.log(loadPlanet.properties.name);
+                data.push(loadPlanet);
+                alignmentBefore.push(Math.random() < 0.7 ? true : false)
+                alignmentAfter.push(Math.random() < 0.3 ? true : false)
+            }
+            localStorage.setItem('alignmentBefore', JSON.stringify(alignmentBefore));
+            localStorage.setItem('alignmentAfter', JSON.stringify(alignmentAfter));
 
-            planet.properties.lat = Math.random() * (95 - 5) + 5;
-            planet.properties.long = Math.random() * (95 - 5) + 5;
-            planet.properties.previousAlignment = planet.properties.alignment;
-            planet.properties.alignment = alignmentBefore[index];
-        });
-        // Ajout des données au tableau 'data'
-        // data.push(planet1, planet2, planet3);
-        const planets = [...data]
+            // etc etc etc t'as capté
 
-        // Ici, 'data' contient les résultats et peut être manipulé
-        console.log('planets', data); // Affiche le tableau 'data' mis à jour
-        // TODO: Ajouter ici toute manipulation de data
+            data.forEach((planet, i) => {
+                let lat, long;
+                const minDistance = 10; // Set your minimum distance here
 
-        data.forEach((planet, i) => {
-            // console.log(planet.properties.name);
-            planet.properties.lat = Math.random() * (95 - 5) + 5;
-            planet.properties.long = Math.random() * (95 - 5) + 5;
-            planet.properties.previousAlignment = planet.properties.alignment; // Store the previous alignment value
-            planet.properties.alignment = alignmentBefore[i];
-            i++;
-        });
-        // console.log(data);
+                do {
+                    lat = Math.random() * (95 - 5) + 5;
+                    long = Math.random() * (95 - 5) + 5;
+                } while (isTooClose(lat, long, minDistance));
+
+                planet.properties.lat = lat;
+                planet.properties.long = long;
+                planet.properties.previousAlignment = planet.properties.alignment; // Store the previous alignment value
+                planet.properties.alignment = alignmentBefore[i];
+                i++;
+            });
+
+            localStorage.setItem('planets', JSON.stringify(data));
+        }
+
+        function isTooClose(newLat, newLong, minDistance) {
+            for (let planet of data) {
+                if (planet.properties.lat && planet.properties.long) {
+                    const distance = Math.sqrt(Math.pow(newLat - planet.properties.lat, 2) + Math.pow(newLong - planet.properties.long, 2));
+                    if (distance < minDistance) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
 
         // Add an event listener to the button
-        d3.select('#galaxy #togBtn').on('click', updateAlignment);
+        document.addEventListener('DOMContentLoaded', function () {
+            d3.select('#galaxy #togBtn').on('click', updateAlignment);
+
+            // Revert back from detailview to overview
+            const backBtn = d3.select('#galaxy .btn-backContainer');
+            backBtn.on('click', function () {
+                if (planetImg) {
+                    const planetImgAnimations = planetImg.getAnimations();
+                    planetImgAnimations.forEach(animation => animation.reverse());
+                }
+                if (planetDetails) {
+                    const planetDetailsAnimations = planetDetails._groups[0];
+                    planetDetailsAnimations.forEach(element => {
+                        element.getAnimations().forEach(animation => animation.reverse());
+                    });
+
+                    container._groups[0][0].getAnimations().forEach(animation => animation.reverse());
+                }
+                const titleContainer = document.querySelector('title-container');
+                titleContainer.setAttribute('backbtn', 'closed');
+            });
+        });
 
         // Get the dimensions of the .map-container
         let container = d3.select('.map-container');
@@ -68,9 +105,8 @@ async function loadDataAndManipulate() {
             .scaleExtent([1, 10]) // The scale extent restricts the amount of zooming (optional)
             .translateExtent([[0, 0], [width, height]]) // The translate extent restricts panning (optional)
             .on('zoom', function (event) {
-                svg.attr('transform', event.transform); // Apply the zoom transform to the 
-                // Log the current zoom level
-                console.log("Current zoom level: ", event.transform.k);
+                svg.attr('transform', event.transform); // Apply the zoom transform to the                
+                // console.log("Current zoom level: ", event.transform.k);
                 (event.transform.k) > 2 ? d3.selectAll('.planet-graphTitle').style('opacity', '1') : d3.selectAll('.planet-graphTitle').style('opacity', '0');
             });
 
@@ -78,6 +114,7 @@ async function loadDataAndManipulate() {
         const svg = container.append('svg')
             .attr('width', width)
             .attr('height', height)
+            .style('max-height', '700px')
             .style('border-radius', '50px')
             .call(zoom) // Apply the zoom behavior to the SVG
             .append('g'); // Append a 'g' element to apply the zoom transform to
@@ -85,11 +122,13 @@ async function loadDataAndManipulate() {
         // Append an image to the SVG
         svg.append('image')
             .attr('xlink:href', '/src/img/galaxy.jpg') // Replace with the path to your image
-            .attr('width', width)
-            .attr('height', height);
+            .attr('height', '100%')            
+            .attr('min-height', '100%')
+            .attr('preserveAspectRatio', 'none');
 
         // Define the update function
         function updateAlignment() {
+            console.log('updateAlignment function was executed')
             // Toggle the alignment value of each planet
             data.forEach((planet, i) => {
                 planet.properties.alignment = planet.properties.alignment === alignmentBefore[i] ? alignmentAfter[i] : alignmentBefore[i];
@@ -166,14 +205,12 @@ async function loadDataAndManipulate() {
         updateAlignment();
 
         svg.selectAll('g').on('click', function () {
-            console.log('clicked');
             const currentPlanet = this;
             const properties = currentPlanet.__data__.properties;
             d3.select('.planet-details').classed('active', true);
             // container.classed('hidden', true);                     
 
-            updateTitle('#galaxy', properties.name);
-            toggleTitle('#galaxy');
+            d3.select('#galaxy title-container').attr('titleDetail', properties.name);
 
             // Get the position of the clicked element
             const rect = currentPlanet.getBoundingClientRect();
@@ -213,11 +250,31 @@ async function loadDataAndManipulate() {
             d3.select('.planet-climate p').text(properties.climate);
             d3.select('.planet-population p').text(properties.population);
             d3.select('.planet-rotation p').text(properties.rotation_period + ' periods');
+            
+            const imageUrl = `./src/img/planets/${properties.name.toLowerCase().replace(/ /g, '_')}.svg`;           
+            d3.select('.planet-img img').attr('src', imageUrl);
+
+           
+
+            // console.log('imageUrl: ', imageUrl);
+            // fetch(imageUrl)
+            //     .then(response => {
+            //         console.log('response: ',  response)
+            //         if (response.ok) {
+            //             d3.select('.planet-img img').attr('src', imageUrl);
+            //             console.log('is planet')
+            //         } else {
+            //             d3.select('.planet-img img').attr('src', `./src/img/planets/hoth.svg`);
+            //             console.log('is not planet')
+            //         }
+            //     })
+            //     .catch(error => {
+            //         console.log('Error: ', error);
+            //     });
 
             // planet details appear animation
             planetDetails = d3.selectAll('.planet-data div');
             const planetDetailsContainer = d3.select('.planet-details');
-            console.log(planetDetailsContainer)
 
 
             planetDetailsContainer._groups[0].forEach(element => {
@@ -266,27 +323,6 @@ async function loadDataAndManipulate() {
             })
 
         });
-
-        // Revert back from detailview to overview
-        const backBtn = d3.select('#galaxy .btn-backContainer');
-        backBtn.on('click', function () {
-            if (planetImg) {
-                const planetImgAnimations = planetImg.getAnimations();
-                planetImgAnimations.forEach(animation => animation.reverse());
-            }
-            if (planetDetails) {
-                const planetDetailsAnimations = planetDetails._groups[0];
-                planetDetailsAnimations.forEach(element => {
-                    element.getAnimations().forEach(animation => animation.reverse());
-                });
-
-                container._groups[0][0].getAnimations().forEach(animation => animation.reverse());
-            }
-            toggleTitle('#galaxy');
-        });
-       
-
-        console.log('planets done');
 
 
     } catch (error) {

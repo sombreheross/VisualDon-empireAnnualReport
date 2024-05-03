@@ -9,12 +9,14 @@ const data = [];
 async function loadDataAndManipulate() {
     try {
         // Utilisation d'async/await pour attendre les données de chaque requête
-        const species1 = await loadSWAPIData('species', 1);
-        const species2 = await loadSWAPIData('species', 2);
-        const species4 = await loadSWAPIData('species', 4);
+        const species1 = await loadSWAPIData('species', 4);
+        const species2 = await loadSWAPIData('species', 7);
+        const species4 = await loadSWAPIData('species', 15);
 
         // Ajout des données au tableau 'data'
         data.push(species1, species2, species4);
+
+        console.log(data);
 
         // Ici, 'data' contient les résultats et peut être manipulé
         // console.log(data); // Affiche le tableau 'data' mis à jour
@@ -36,7 +38,7 @@ async function loadDataAndManipulate() {
                                 .append('div')
                                 .attr('class', 'species-img')
                                 .append('img')
-                                .attr('src', 'http://placebacon.net/400/400')
+                                .attr('src', './src/img/species/rodian.svg')
 
                             d3.select(this)
                                 .append('h3')
@@ -106,17 +108,6 @@ async function loadDataAndManipulate() {
                             d3.select(this).select('.species-skin')
                                 .append('p')
                                 .text(d => d.properties.skin_colors)
-
-                            d3.select(this).select('.species-details')
-                                .append('div')
-                                .attr('class', 'species-lifespan')
-                            d3.select(this).select('.species-lifespan')
-                                .append('h4')
-                                .attr('class', 'h3')
-                                .text('Lifespan')
-                            d3.select(this).select('.species-lifespan')
-                                .append('p')
-                                .text(d => d.properties.average_lifespan)
 
                             d3.select(this).select('.species-details')
                                 .append('div')
