@@ -7,9 +7,12 @@ const data = [];
 // Fonction asynchrone pour charger les données et les manipuler
 async function loadDataAndManipulate() {
     try {
-        // Utilisation d'async/await pour attendre les données de chaque requête
-        const alignmentBefore = []
-        const alignmentAfter = []
+        const requests = Array.from({ length: 10 }, (_, i) => loadSWAPIData('planets', i + 1));
+        const planetsData = await Promise.all(requests);
+
+        const data = [];
+        const alignmentBefore = [];
+        const alignmentAfter = [];
 
         if (localStorage.getItem('planets')) {
             data.push(...JSON.parse(localStorage.getItem('planets')));
@@ -254,23 +257,6 @@ async function loadDataAndManipulate() {
             const imageUrl = `./src/img/planets/${properties.name.toLowerCase().replace(/ /g, '_')}.svg`;           
             d3.select('.planet-img img').attr('src', imageUrl);
 
-           
-
-            // console.log('imageUrl: ', imageUrl);
-            // fetch(imageUrl)
-            //     .then(response => {
-            //         console.log('response: ',  response)
-            //         if (response.ok) {
-            //             d3.select('.planet-img img').attr('src', imageUrl);
-            //             console.log('is planet')
-            //         } else {
-            //             d3.select('.planet-img img').attr('src', `./src/img/planets/hoth.svg`);
-            //             console.log('is not planet')
-            //         }
-            //     })
-            //     .catch(error => {
-            //         console.log('Error: ', error);
-            //     });
 
             // planet details appear animation
             planetDetails = d3.selectAll('.planet-data div');

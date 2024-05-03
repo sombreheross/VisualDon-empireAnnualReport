@@ -1,5 +1,6 @@
 html {
     min-height: 100vh;
+    scroll-snap-type: y mandatory;
 }
 
 body {
@@ -12,6 +13,7 @@ body {
     padding: var(--space-xl) 0;
     display: flex;
     flex-direction: column;
+    scroll-snap-align: start;
 }
 
 img {
