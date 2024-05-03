@@ -8,20 +8,24 @@ const data = [];
 // Fonction asynchrone pour charger les données et les manipuler
 async function loadDataAndManipulate() {
     try {
-        // Utilisation d'async/await pour attendre les données de chaque requête
-        const alignmentBefore = []
-        const alignmentAfter = []
+        const requests = Array.from({ length: 10 }, (_, i) => loadSWAPIData('planets', i + 1));
+        const planetsData = await Promise.all(requests);
 
-        for (let i = 1; i <= 10; i++) {
-            const loadPlanet = await loadSWAPIData('planets', i);
-            console.log(loadPlanet.properties.name);
-            data.push(loadPlanet);
-            alignmentBefore.push(Math.random() < 0.7 ? true : false)
-            alignmentAfter.push(Math.random() < 0.3 ? true : false)
-        }
+        const data = [];
+        const alignmentBefore = [];
+        const alignmentAfter = [];
 
-        // etc etc etc t'as capté
+        planetsData.forEach((planet, index) => {
+            console.log(planet.properties.name);
+            data.push(planet);
+            alignmentBefore.push(Math.random() < 0.7);
+            alignmentAfter.push(Math.random() < 0.3);
 
+            planet.properties.lat = Math.random() * (95 - 5) + 5;
+            planet.properties.long = Math.random() * (95 - 5) + 5;
+            planet.properties.previousAlignment = planet.properties.alignment;
+            planet.properties.alignment = alignmentBefore[index];
+        });
         // Ajout des données au tableau 'data'
         // data.push(planet1, planet2, planet3);
         const planets = [...data]

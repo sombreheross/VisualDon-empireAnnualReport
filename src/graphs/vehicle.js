@@ -7,8 +7,9 @@ const data = [];
 async function loadDataAndManipulate() {
     try {
         // Utilisation d'async/await pour attendre les données de chaque requête
-        const vehicle = await loadSWAPIData('vehicles', 67);
-
+        const vehicle = await loadSWAPIData('vehicles', 18);
+        // Mise à jour du DOM avec les données récupérées
+        updateDOMWithData(vehicle.properties);
         // etc etc etc t'as capté
 
         // Ajout des données au tableau 'data'
@@ -22,5 +23,27 @@ async function loadDataAndManipulate() {
     }
 }
 
+function updateDOMWithData(data) {
+    // Mise à jour des informations sur le modèle
+    const cellsLeft = document.querySelectorAll('#vehicle .blueprint-tableLeft .blueprint-cell p');
+    cellsLeft[0].textContent = formatText(data.model);
+    cellsLeft[1].textContent = formatText(data.manufacturer);
+    cellsLeft[2].textContent = formatText(data.vehicle_class);
+
+    // Mise à jour des informations sur les capacités et la vitesse
+    const cellsRight = document.querySelectorAll('#vehicle .blueprint-tableRight .blueprint-cell p');
+    cellsRight[0].textContent = data.max_atmosphering_speed;
+    cellsRight[1].textContent = `${data.passengers} passagers`;
+    cellsRight[2].textContent = `${data.cargo_capacity} kg`;
+
+    function formatText(text) {
+        return text.replace(/^\w|\s\w/g, letter => letter.toUpperCase());
+    }
+}
+
+
+console.log(data);
 // Appel de la fonction pour charger les données
-loadDataAndManipulate();
+document.addEventListener('DOMContentLoaded', function () {
+    loadDataAndManipulate();
+});
