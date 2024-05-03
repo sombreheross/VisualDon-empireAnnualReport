@@ -44,11 +44,11 @@ export function updateTitle(selector, newTitle) {
     titleH2.innerHTML = newTitle;
     titleH2.insertAdjacentHTML('beforeend', `<span class="droidobesh">${newTitle}</span>`);
   }, 1000);
-  console.log('yeet')
+  console.log('updateTitle function in titles.js was executed')
 }
 
 export function toggleTitle(selector) {
-  console.log('toggleTitle', this)
+  console.log('titles.js, toggleTitle', this)
 
 
   const btnBackContainer = document.querySelector(`${selector} .btn-backContainer`);
@@ -88,6 +88,7 @@ export function toggleTitle(selector) {
     });
     btnBackContainer.classList.toggle('opened');
   }
+  console.log('toggleTitle function in titles.js was executed')
 }
 
 

@@ -3,6 +3,7 @@
     display: inline-block;
     display: flex;
     align-self: flex-start;
+    margin-top: 10px;
 }
 
 .switch::hover {
