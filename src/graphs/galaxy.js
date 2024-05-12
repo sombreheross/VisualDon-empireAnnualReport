@@ -6,6 +6,7 @@ const data = [];
 
 // Fonction asynchrone pour charger les données et les manipuler
 async function loadDataAndManipulate() {
+    showLoadingScreen();
     try {
         // Utilisation d'async/await pour attendre les données de chaque requête
         const alignmentBefore = []
@@ -122,7 +123,7 @@ async function loadDataAndManipulate() {
         // Append an image to the SVG
         svg.append('image')
             .attr('xlink:href', '/src/img/galaxy.jpg') // Replace with the path to your image
-            .attr('height', '100%')            
+            .attr('height', '100%')
             .attr('min-height', '100%')
             .attr('preserveAspectRatio', 'none');
 
@@ -250,11 +251,11 @@ async function loadDataAndManipulate() {
             d3.select('.planet-climate p').text(properties.climate);
             d3.select('.planet-population p').text(properties.population);
             d3.select('.planet-rotation p').text(properties.rotation_period + ' periods');
-            
-            const imageUrl = `./src/img/planets/${properties.name.toLowerCase().replace(/ /g, '_')}.svg`;           
+
+            const imageUrl = `./src/img/planets/${properties.name.toLowerCase().replace(/ /g, '_')}.svg`;
             d3.select('.planet-img img').attr('src', imageUrl);
 
-           
+
 
             // console.log('imageUrl: ', imageUrl);
             // fetch(imageUrl)
@@ -327,9 +328,21 @@ async function loadDataAndManipulate() {
 
     } catch (error) {
         console.error("Error:", error);
+    } finally {
+        hideLoadingScreen();
     }
 
 }
 
+// Display loading screen
+function showLoadingScreen() {
+    document.getElementById('loading-screen').style.display = 'flex';
+  }
+  
+  // Hide loading screen
+  function hideLoadingScreen() {
+    document.getElementById('loading-screen').style.display = 'none';
+  }
+  
 // Appel de la fonction pour charger les données
 loadDataAndManipulate();
