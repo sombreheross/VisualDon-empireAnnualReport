@@ -90,8 +90,7 @@ async function loadDataAndManipulate() {
         // Get the dimensions of the .map-container
         let container = d3.select('.map-container');
         const width = parseInt(container.style('width'));
-        const height = parseInt(container.style('height'));
-        const galaxyImgUrl = new URL('/src/img/galaxy.jpg', import.meta.url).href
+        const height = parseInt(container.style('height'));        
         let planetImg;
         let planetDetails;
 
@@ -125,7 +124,7 @@ async function loadDataAndManipulate() {
 
         // Append an image to the SVG
         svg.append('image')
-            .attr('xlink:href', galaxyImgUrl)
+            .attr('xlink:href', new URL('/src/img/galaxy.jpg', import.meta.url))
             .attr('height', '100%')
             .attr('min-height', '100%')
             .attr('preserveAspectRatio', 'none');
