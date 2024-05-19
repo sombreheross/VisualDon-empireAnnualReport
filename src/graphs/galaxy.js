@@ -149,8 +149,9 @@ async function loadDataAndManipulate() {
                             .attr('width', 20)
                             .attr('height', 20)
                             .style('fill', d => d.properties.alignment ? 'blue' : 'red')
-                            .append('use')
-                            .attr('href', d => d.properties.alignment ? './src/img/sprite.svg#logo-empire' : './src/img/sprite.svg#logo-rebel');
+                            .append('use')                            
+                            .attr('href', d => d.properties.alignment ? new URL('./src/img/sprite.svg#logo-empire', import.meta.url) : new URL('./src/img/sprite.svg#logo-rebel', import.meta.url));
+                            // .attr('href', d => d.properties.alignment ? './src/img/sprite.svg#logo-empire' : './src/img/sprite.svg#logo-rebel');
                         group.append('text')
                             .text(d => d.properties.name)
                             .attr('x', d => xScale(d.properties.long))
@@ -255,8 +256,8 @@ async function loadDataAndManipulate() {
             d3.select('.planet-climate p').text(properties.climate);
             d3.select('.planet-population p').text(properties.population);
             d3.select('.planet-rotation p').text(properties.rotation_period + ' periods');
-
-            const imageUrl = `./src/img/planets/${properties.name.toLowerCase().replace(/ /g, '_')}.svg`;
+            
+            const imageUrl = new URL(`./src/img/planets/${properties.name.toLowerCase().replace(/ /g, '_')}.svg`, import.meta.url);
             d3.select('.planet-img img').attr('src', imageUrl);
 
 
