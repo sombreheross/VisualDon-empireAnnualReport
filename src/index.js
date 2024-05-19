@@ -25,7 +25,7 @@ particlesJS("particles-js", {
       }
     },
     "color": {
-      "value": "#ffffff"
+      "value": "#C1FAFD"
     },
     "shape": {
       "type": "circle",
@@ -142,6 +142,18 @@ const sections = document.querySelectorAll('section');
 
 // Create an array of section IDs
 const sectionIds = Array.from(sections).map(section => section.id);
+
+
+// Information Modal
+const modalBtn = document.querySelector('.modal-btn');
+const modalCloseBtn = document.querySelector('.modal-close');
+const modalContainer = document.querySelector('.modal');
+modalBtn.addEventListener('click', function () {
+  modalContainer.classList.toggle('active');
+});
+modalCloseBtn.addEventListener('click', function () {
+  modalContainer.classList.toggle('active');
+});
 
 
 

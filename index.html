@@ -17,14 +17,42 @@
 </head>
 
 <body>
+	<div id="loading-screen">
+		<div class="loading-screenContent">
+			<div class="icon">
+				<svg>
+					<use href="./src/img/sprite.svg#logo-empire"></use>
+				</svg>
+			</div>
+			<p>Please wait as we collect data from every corner of the galaxy.</p>
+		</div>
+		
+	</div>
 	<div class="layout" id="layout">
 		<section class="section" id="home">
+			<!-- The Modal -->
+			<div id="modal" class="modal">
+				<!-- Modal content -->
+				<div class="modal-content glow-border">
+					<button class="modal-close">&times;</button>
+					<p>Some text in the Modal..</p>
+				</div>
+			</div>
+			<button class="modal-btn">
+				<div class="icon icon-question">
+					<svg>
+						<use href="./src/img/sprite.svg#question"></use>
+					</svg>
+				</div>
+				<span>About this project</span>
+			</button>
+
 			<div class="section-center">
 				<div class="container">
 					<div class="row">
 						<div class="col-12">
 							<div class="title-container">
-								<h1 class="glow main-title"><span>Bilan annuel d'activité</span> <br>Empire galactique
+								<h1 class="glow main-title"><span>Annual activity report</span> <br>Galactic Empire
 								</h1>
 							</div>
 							<div class="icon icon-home">
@@ -42,25 +70,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-12">
-						<title-container title-overview="Contrôle galactique" title-detail="" back-btn
+						<title-container titleOverview="Galactic control" titleDetail="" backBtn="closed"
 							switch></title-container>
-						<!-- <div class="title-container">
-							<div class="btn-backContainer">
-								<button class="btn-back icon">
-									<svg class="">
-										<use href="./src/img/sprite.svg#chevron"></use>
-									</svg>
-								</button>
-							</div>
-							<h2 class="glow">Contrôle galactique</h2>
-							<label class="switch glow-border">
-								<input type="checkbox" id="togBtn">
-								<div class="slider">
-									<span class="slider-button on">Après</span>
-									<span class="slider-button off">Avant</span>
-								</div>
-							</label>
-						</div> -->
 					</div>
 				</div>
 			</div>
@@ -98,7 +109,7 @@
 							</div>
 						</div>
 						<div class="planet-img">
-							<img src="./src/img/planets/hoth.png" alt="">
+							<img src="./src/img/planets/hoth.png" alt="" onerror="defaultImage()">
 						</div>
 					</div>
 				</div>
@@ -108,16 +119,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-12">
-						<div class="title-container">
-							<div class="btn-backContainer">
-								<button class="btn-back icon">
-									<svg class="">
-										<use href="./src/img/sprite.svg#chevron"></use>
-									</svg>
-								</button>
-							</div>
-							<h2 class="glow">Espèces collaboratives</h2>
-						</div>
+						<title-container titleOverview="Collaborative species" titleDetail=""
+							backBtn="closed"></title-container>
 					</div>
 				</div>
 			</div>
@@ -137,7 +140,14 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
-					<h2 class="glow">Most Wanted</h2>
+					<title-container titleOverview="Most wanted" titleDetail="" backBtn="closed"></title-container>
+				</div>
+			</div>
+		</div>
+		<div class="section-center">
+			<div class="container">
+				<div class="row">
+					<div class="wanted-container wanted-d3"></div>
 				</div>
 			</div>
 		</div>
@@ -147,12 +157,12 @@
 			<div class="row">
 				<div class="col-12">
 					<div class="title-container">
-						<h2 class="glow">Etat de la flotte</h2>
+						<h2 class="glow">Imperial fleet status</h2>
 						<label class="switch glow-border">
 							<input type="checkbox" id="togBtn">
 							<div class="slider">
-								<span class="slider-button on">Après</span>
-								<span class="slider-button off">Avant</span>
+								<span class="slider-button on">After</span>
+								<span class="slider-button off">Before</span>
 							</div>
 						</label>
 					</div>
@@ -165,7 +175,7 @@
 					<div>
 						<div class="fleet-data">
 							<div class="fleet-datatable glow-border">
-								<h3 class="h2 glow">Recensement des vaisseaux</h3>
+								<h3 class="h2 glow">Vessel census <span>in thousands</span></h3>
 							</div>
 						</div>
 					</div>
@@ -179,7 +189,7 @@
 			<div class="row">
 				<div class="col-12">
 					<div class="title-container">
-						<h2 class="glow">Vaisseau de l'année</h2>
+						<h2 class="glow">Starship of the year</h2>
 					</div>
 				</div>
 			</div>
@@ -188,7 +198,7 @@
 			<div class="container">
 				<div class="blueprint-container">
 					<div class="blueprint-title">
-						<h2 class="h3">Intercepteur Tie</h2>
+						<h2 class="h3 glow">Tie Bomber</h2>
 					</div>
 					<div class="blueprint-table">
 						<div class="blueprint-tableLeft">
@@ -236,7 +246,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
-					<h2 class="glow">Vehicle</h2>
+					<h2 class="glow">Vehicle of the year</h2>
 				</div>
 			</div>
 		</div>
@@ -244,7 +254,7 @@
 			<div class="container">
 				<div class="blueprint-container">
 					<div class="blueprint-title">
-						<h2 class="h3">AT-AT</h2>
+						<h2 class="h3 glow">AT-AT</h2>
 					</div>
 					<div class="blueprint-table">
 						<div class="blueprint-tableLeft">

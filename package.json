@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite & watch",
     "build": "vite build",
     "preview": "vite preview",
     "update-sprite": "svg-sprite -s --symbol-dest src/img --symbol-sprite sprite.svg src/icons/*.svg",

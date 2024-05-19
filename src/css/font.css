@@ -41,17 +41,17 @@ h1,
 h2,
 .h2 {
     font-family: 'Gothic Heavy', sans-serif;
-    font-size: calc(var(--text-lg) * .75);
+    font-size: calc(var(--text-lg) * .5);    
     color: var(--color-primary);
     text-transform: uppercase;
 }
 
-@media(min-width: 1920px) {
+/* @media(min-width: 1920px) {
     h2,
     .h2 {
         font-size: var(--text-xl);
     }
-}
+} */
 
 h3,
 .h3 {
@@ -101,6 +101,10 @@ h4,
     margin-bottom: var(--space-md);
 }
 
+.fleet-datatable h3 span {
+    font-size: .5em;
+}
+
 .fleet-datatable {
     font-family: 'Gothic Heavy', sans-serif;
     font-weight: 700;
@@ -115,5 +119,9 @@ h4,
     fill: var(--color-secondary);
     opacity: 0;
     transition: all .3s;
+}
+
+.blueprint-title h2.h3 {
+    color: var(--color-primary);
 }
 

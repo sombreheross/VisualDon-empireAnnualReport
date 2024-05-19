@@ -5,7 +5,13 @@
 }
 
 .fleet-item {
-    margin-bottom: var(--space-lg)
+    margin-bottom: var(--space-md)
+}
+
+@media(min-width: 1920px) {
+    .fleet-item {
+        margin-bottom: var(--space-lg)
+    }
 }
 
 

@@ -5,7 +5,8 @@ import * as d3 from 'd3';
 const data = [];
 
 // Fonction asynchrone pour charger les données et les manipuler
-async function loadDataAndManipulate() {
+async function loadDataAndManipulate() {    
+    
     try {
         // Utilisation d'async/await pour attendre les données de chaque requête
         const alignmentBefore = []
@@ -17,6 +18,7 @@ async function loadDataAndManipulate() {
             alignmentAfter.push(...JSON.parse(localStorage.getItem('alignmentAfter')));
 
         } else {
+            showLoadingScreen();
             for (let i = 1; i <= 30; i++) {
                 const loadPlanet = await loadSWAPIData('planets', i);
                 // console.log(loadPlanet.properties.name);
@@ -81,6 +83,7 @@ async function loadDataAndManipulate() {
                 }
                 const titleContainer = document.querySelector('title-container');
                 titleContainer.setAttribute('backbtn', 'closed');
+                d3.select('.map-container').style('pointer-events', 'initial');
             });
         });
 
@@ -170,6 +173,7 @@ async function loadDataAndManipulate() {
                                     .transition()
                                     .duration(250)
                                     .style('opacity', '0')
+                                    .style('filter', 'drop-shadow(0px 0px 3px rgba(255, 255, 255, 0.25))')
                                     .attr('Alignment', d => d.properties.alignment)
                                     .style('fill', d => d.properties.alignment ? 'blue' : 'red')
                                     .select('use').attr('href', d => d.properties.alignment ? './src/img/sprite.svg#logo-empire' : './src/img/sprite.svg#logo-rebel')
@@ -208,6 +212,7 @@ async function loadDataAndManipulate() {
             const currentPlanet = this;
             const properties = currentPlanet.__data__.properties;
             d3.select('.planet-details').classed('active', true);
+            d3.select('.map-container').style('pointer-events', 'none');
             // container.classed('hidden', true);                     
 
             d3.select('#galaxy title-container').attr('titleDetail', properties.name);
@@ -327,9 +332,24 @@ async function loadDataAndManipulate() {
 
     } catch (error) {
         console.error("Error:", error);
+    } finally {
+        hideLoadingScreen();
     }
 
+
 }
+
+// Display loading screen
+function showLoadingScreen() {
+    document.getElementById('loading-screen').style.opacity = 1;
+    document.getElementsByTagName('body')[0].style.overflow = 'hidden';
+  }
+  
+  // Hide loading screen
+  function hideLoadingScreen() {
+    document.getElementById('loading-screen').style.opacity = 0;
+    document.getElementsByTagName('body')[0].style.overflow = 'initial';
+  }
 
 // Appel de la fonction pour charger les données
 loadDataAndManipulate();

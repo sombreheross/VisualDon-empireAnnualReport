@@ -15,8 +15,8 @@ class TitleContainer extends HTMLElement {
       ${this.hasAttribute('switch') ? `<label class="switch glow-border">
       <input type="checkbox" id="togBtn">
       <div class="slider">
-          <span class="slider-button on">Après</span>
-          <span class="slider-button off">Avant</span>
+          <span class="slider-button on">After</span>
+          <span class="slider-button off">Before</span>
       </div>
   </label>` : ''}      
   </div>`
@@ -45,7 +45,7 @@ class TitleContainer extends HTMLElement {
                 this.toggleTitle();
                 console.log('backbtn attribute was updated to ' + this.backbtn)
                 if (this.backbtn === 'closed') {
-                    this.updateTitle(this.titleoverview);
+                    this.updateTitle(this.titleoverview);                    
                     
                 }                
                 // this.backbtn = 'opened' ? this.backbtn = 'closed' : this.backbtn = 'opened';
@@ -110,6 +110,7 @@ class TitleContainer extends HTMLElement {
                 togBtnAnimations.forEach(animation => animation.reverse());
               }, 2000);              
             }
+            console.log('toggleTitle function in title.js (if) was executed')
         } else if(this.backbtn === 'opened') {
             console.log('toggleTitle (else) function in title.js was executed')
             btnBackContainer.animate([
@@ -124,7 +125,7 @@ class TitleContainer extends HTMLElement {
               });              
         }
       
-        console.log('toggleTitle function in title.js was executed')            
+        console.log('toggleTitle function in title.js was executed to the end')            
     }
 
     get backbtn() {

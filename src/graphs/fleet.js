@@ -11,7 +11,7 @@ const data = [
     },
     {
         name: 'TIE Bomber',
-        quantity: 50,
+        quantity: 28,
         icon: 'tie_bomber'
     },
     {
@@ -63,8 +63,8 @@ function updateFleetItems(data) {
     fleetItems.select('.fleet-itemPicto').selectAll('.icon')
         .data(d => Array.from({ length: d.quantity }, () => d))
         .join(
-            enter => enter.append('div').attr('class', 'icon'),
-            update => update.attr('class', 'icon'),
+            enter => enter.append('div').attr('class', 'icon icon-fleet'),
+            update => update.attr('class', 'icon icon-fleet'),
             exit => exit.transition()
                  .delay((d, i) => i * 200)
                  .on('start', function() {
@@ -92,7 +92,7 @@ function updateFleetItems(data) {
         fleetItemPicto.selectAll('.icon')
         .data(d => Array.from({ length: d.quantity }, () => d))
         .join('div')
-        .attr('class', 'icon')
+        .attr('class', 'icon icon-fleet')
         .html(d => `
             <svg class="">
                 <use href="./src/img/sprite.svg#${d.icon}"></use>

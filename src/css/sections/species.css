@@ -1,4 +1,4 @@
-.species-container {
+.species-container, .wanted-container {
     display: flex;
     width: 100%;
     position: relative;
@@ -11,22 +11,38 @@
     align-items: center;
     gap: var(--space-md);
     padding: 0 var(--space-md);
-    overflow: hidden;
+    /* overflow: hidden; */
 
     @media(min-width: 992px) {
         padding: 0 var(--space-lg);
     }
 }
 
-@media(min-width: 1200px) {
+.species-item:hover {
+    cursor: pointer;
+}
+
+/* @media(min-width: 1200px) {
     .species-item {
         padding: 0 var(--space-xl);
+    }
+} */
+
+.species-img {
+    border: 3px solid var(--color-secondary);
+   border-radius: 100%;
+   width: 100%;
+   max-width: 475px;
+}
+
+@media(min-width: 1920px) {
+    .species-img {
+        max-width: 600px;
     }
 }
 
 .species-img img  {
-   border: 1px solid var(--color-secondary);
-   border-radius: 100%;
+    transform: scale(123%) translate(0px, 0px);
 }
 
 .species-desc {

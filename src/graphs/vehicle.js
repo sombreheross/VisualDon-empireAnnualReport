@@ -33,7 +33,7 @@ function updateDOMWithData(data) {
     // Mise à jour des informations sur les capacités et la vitesse
     const cellsRight = document.querySelectorAll('#vehicle .blueprint-tableRight .blueprint-cell p');
     cellsRight[0].textContent = data.max_atmosphering_speed;
-    cellsRight[1].textContent = `${data.passengers} passagers`;
+    cellsRight[1].textContent = `${data.passengers}`;
     cellsRight[2].textContent = `${data.cargo_capacity} kg`;
 
     function formatText(text) {

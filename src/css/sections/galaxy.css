@@ -38,8 +38,8 @@
     transition: all 0.5s;
 } */
 
-.planet-details.active img {
-   
+.map-container g svg:hover {
+   cursor: pointer;
 }
 
 .planet-data {   
