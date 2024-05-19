@@ -125,7 +125,7 @@ async function loadDataAndManipulate() {
         // Append an image to the SVG
         svg.append('image')
             .attr('xlink:href', '/src/img/galaxy.jpg') // Replace with the path to your image
-            .attr('height', '100%')            
+            .attr('height', '100%')
             .attr('min-height', '100%')
             .attr('preserveAspectRatio', 'none');
 
@@ -255,11 +255,11 @@ async function loadDataAndManipulate() {
             d3.select('.planet-climate p').text(properties.climate);
             d3.select('.planet-population p').text(properties.population);
             d3.select('.planet-rotation p').text(properties.rotation_period + ' periods');
-            
-            const imageUrl = `./src/img/planets/${properties.name.toLowerCase().replace(/ /g, '_')}.svg`;           
+
+            const imageUrl = `./src/img/planets/${properties.name.toLowerCase().replace(/ /g, '_')}.svg`;
             d3.select('.planet-img img').attr('src', imageUrl);
 
-           
+
 
             // console.log('imageUrl: ', imageUrl);
             // fetch(imageUrl)
