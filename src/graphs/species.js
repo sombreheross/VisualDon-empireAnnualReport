@@ -21,20 +21,19 @@ async function loadDataAndManipulate() {
         // Ici, 'data' contient les résultats et peut être manipulé
         // console.log(data); // Affiche le tableau 'data' mis à jour
         // Ajoutez ici toute manipulation supplémentaire de 'data'
+        const sectionSpecies = document.querySelector('#species');                
 
-        const SectionTitle = d3.select('#species h2')
-
-        function update(data) {
+        function update(data) {            
             // console.log(data, d => d);
             d3.select('#species .species-container').selectAll('#species .species-item')
                 .data(data, d => d.properties.name)
-                .join(
+                .join(                    
                     enter => enter.append('div')
                         .style('pointer-events', 'auto')
                         // .style('background', 'red')
                         .attr('class', 'species-item')
                         .attr('id', d => d.properties.name)
-                        .each(function (d) {
+                        .each(function (d) {                                                  
                             d3.select(this)
                                 .append('div')
                                 .attr('class', 'species-img')
@@ -42,29 +41,29 @@ async function loadDataAndManipulate() {
                                 .attr('src', `./src/img/species/${d.properties.name}.svg`)
 
                             d3.select(this)
-                                .append('h3')                            
+                                .append('h3')
                                 .text(d => d.properties.name);
                             d3.select(this).select('h3')
-                            .style('opacity', '0')
-                            .transition()
-                            .ease(d3.easePolyInOut)
-                            .duration(1000)
-                            .style('opacity', '1');
+                                .style('opacity', '0')
+                                .transition()
+                                .ease(d3.easePolyInOut)
+                                .duration(1000)
+                                .style('opacity', '1');
                             d3.selectAll('#species .species-details').remove();
 
-                        d3.select(this)
-                        .style('opacity', '0')                        
-                        .style('margin-left', '-50%')
-                        .style('margin-right', '-50%')
-                        .transition()
-                        .ease(d3.easePolyInOut)
-                        .duration(2000)                        
-                        .style('margin-left', '0%')
-                        .style('margin-right', '0%')
-                        .transition()
-                        .ease(d3.easePolyInOut)
-                        .duration(2000)
-                        .style('opacity', '1')
+                            d3.select(this)
+                                .style('opacity', '0')
+                                .style('margin-left', '-50%')
+                                .style('margin-right', '-50%')
+                                .transition()
+                                .ease(d3.easePolyInOut)
+                                .duration(2000)
+                                .style('margin-left', '0%')
+                                .style('margin-right', '0%')
+                                .transition()
+                                .ease(d3.easePolyInOut)
+                                .duration(2000)
+                                .style('opacity', '1');                                
                         }
                         ),
 
@@ -72,10 +71,7 @@ async function loadDataAndManipulate() {
                         .attr('id', d => d.properties.name)
                         // .style('background', 'blue')
 
-                        .each(function (d) {
-
-
-
+                        .each(function (d) {                        
                             if (d3.select('#species').classed('detail-view')) {
                                 d3.select(this)
                                     .style('pointer-events', 'auto')
@@ -84,7 +80,7 @@ async function loadDataAndManipulate() {
                                     .ease(d3.easePolyInOut)
                                     .duration(1000)
                                     .style('opacity', '1');
-                                    d3.select('#species').classed('detail-view', false);
+                                d3.select('#species').classed('detail-view', false);
                             } else {
                                 d3.select(this)
                                     .select('h3')
@@ -152,9 +148,7 @@ async function loadDataAndManipulate() {
                                 d3.select(this).select('#species .species-language')
                                     .append('p')
                                     .text(d => d.properties.language)
-                            }
-
-
+                            }                            
                         }),
 
 
@@ -163,7 +157,7 @@ async function loadDataAndManipulate() {
                         // .style('background', 'green')
                         .transition()
                         .ease(d3.easePolyInOut)
-                        .duration(1000)                                         
+                        .duration(1000)
                         .style('opacity', '0')
                         .attr('width', '0px')
                         .transition()
@@ -181,20 +175,22 @@ async function loadDataAndManipulate() {
                         .remove(),
 
                 )
+                
+                // SectionSpecies.style.backgroundColor = 'transparent';
 
-                d3.selectAll('#species .species-item')
+            d3.selectAll('#species .species-item')
                 .on('click', function (e, d) {
-    
+
                     const clickedElement = d3.select(this).attr('id');
                     d3.select('#species title-container').attr('titleDetail', clickedElement);
-    
+
                     const updatedData = data.filter(item => item.properties.name === clickedElement);
                     update(updatedData);
                 });
 
         }
         update(data);
-    
+
 
         // Revert back from detailview to overview
         const backBtn = d3.select('#species .btn-backContainer');
